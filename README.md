@@ -1,8 +1,12 @@
 # dsh-feishu-codem
 
+**Use Feishu CodeM as the LLM provider for DeepSeek Harness (DSH) — no paid API key needed.**
+
 让**原生 DeepSeek Harness（DSH）**使用**飞书 CodeM** 作为模型 Provider，彻底免去 DeepSeek 官方付费额度。
 
-> 只要你拥有飞书账号，就能用 CodeM 的 AI 额度驱动 DSH——这是 DeepSeek Harness 的模型 Provider 机制与飞书 CodeM 的 OpenAI 兼容接口的即插即用组合。
+> dsh-feishu-codem is a lightweight DSH plugin that lets you drive DeepSeek Harness with Feishu's CodeM as your model provider, completely removing the need for a paid DeepSeek API key. It is built on DSH's Cordis plugin system as a standard npm bundle: a single `cordis.patch.yml` registers a `codem` provider pointing to CodeM's OpenAI-compatible endpoint (`codem.feishu.cn/models/v1`). After installation, your default model becomes `codem-router/auto`, billed through your Feishu account's AI quota. The plugin ships with a credential sync script that reads your CodeM accessToken from `~/.codem/.credentials.json` and writes it into DSH's credentials file — DSH hot-reloads credentials, so token updates take effect on the next request without a restart. Installation is one command (`dsh plugin add`) and works with any profile (web, headless, or custom). If you already have a Feishu account, this is the fastest way to run DSH for free.
+>
+> dsh-feishu-codem 是一款轻量级 DSH 插件，让你用飞书 CodeM 作为模型 Provider 来驱动 DeepSeek Harness，彻底省去付费的 DeepSeek API Key。它基于 DSH 的 Cordis 插件体系，是一个标准 npm bundle：一份 `cordis.patch.yml` 注册名为 `codem` 的 Provider，指向 CodeM 的 OpenAI 兼容接口（`codem.feishu.cn/models/v1`）。安装后默认模型即为 `codem-router/auto`，按你的飞书账号 AI 额度计费。插件自带凭证同步脚本，自动从 `~/.codem/.credentials.json` 读取 CodeM accessToken 并写入 DSH 的凭证文件，DSH 支持热加载，无需重启。一条 `dsh plugin add` 命令即可完成安装，兼容 web、headless 等任意 profile。只要你有飞书账号，这是让 DSH 免费跑起来的最快方式。
 
 ## 它解决什么问题
 
@@ -33,6 +37,8 @@ DSH 采用 Cordis「一切皆插件」架构，插件本质是一个 npm 包，`
 - 已安装并登录飞书 CodeM（`~/.codem/.credentials.json` 存在，访问 [codem.feishu.cn](https://codem.feishu.cn)）
 
 ## 安装
+
+> 注：下面的 `<本仓库地址>` 是占位符，push 到 GitHub 后请替换为你仓库的真实地址（形如 `https://github.com/<你的用户名>/dsh-feishu-codem.git`）。
 
 ```bash
 git clone <本仓库地址>
