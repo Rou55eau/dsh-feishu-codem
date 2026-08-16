@@ -8,6 +8,8 @@
 >
 > dsh-feishu-codem 是一款轻量级 DSH 插件，让你用飞书 CodeM 作为模型 Provider 来驱动 DeepSeek Harness，彻底省去付费的 DeepSeek API Key。它基于 DSH 的 Cordis 插件体系，是一个标准 npm bundle：一份 `cordis.patch.yml` 注册名为 `codem` 的 Provider，指向 CodeM 的 OpenAI 兼容接口（`codem.feishu.cn/models/v1`）。安装后默认模型即为 `codem-router/auto`，按你的飞书账号 AI 额度计费。插件自带凭证同步脚本，自动从 `~/.codem/.credentials.json` 读取 CodeM accessToken 并写入 DSH 的凭证文件，DSH 支持热加载，无需重启。一条 `dsh plugin add` 命令即可完成安装，兼容 web、headless 等任意 profile。只要你有飞书账号，这是让 DSH 免费跑起来的最快方式。
 
+> **免责声明**：本项目为个人独立开发的第三方插件，与飞书（字节跳动）及其 CodeM 产品无任何关联，亦非官方出品。"飞书""CodeM" 为各自权利人的商标；CodeM 的 AI 额度由你的飞书账号提供，使用须遵守飞书服务条款。
+
 ## 它解决什么问题
 
 DeepSeek Harness（DSH）默认模型走 `api.deepseek.com`，需要 `DEEPSEEK_API_KEY` 付费。而飞书 CodeM 底层暴露了 OpenAI 兼容接口（`https://codem.feishu.cn/models/v1`），登录飞书即可获得 AI 额度。
