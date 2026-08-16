@@ -1,0 +1,5 @@
+# shell 脚本必须用 LF（Mac/Linux 上运行）
+*.sh text eol=lf
+
+# 其余文本文件按 git 自动检测
+* text=auto

@@ -1,0 +1,27 @@
+# dsh-feishu-codem — 飞书 CodeM 模型 Provider 接入补丁
+#
+# 作为 DSH 的 profile bundle 层生效：`dsh plugin add dsh-feishu-codem` 后，
+# 该文件覆盖 base 层的 llm-pi-ai 与 agent-default-model 条目。
+# 原理：DSH 内置的 llm-pi-ai 多 Provider 适配器 + CodeM 的 OpenAI 兼容接口。
+#
+# 凭证：CODEM_API_KEY 由 scripts/sync-credentials.mjs 写入
+#       $DSH_HOME/.credentials.yaml（dsh-credentials-local 插件热加载，无需重启）。
+
+- id: llm-pi-ai
+  config:
+    providers:
+      codem:
+        displayName: 飞书CodeM
+        apiKeyEnv: CODEM_API_KEY
+        api: openai-completions
+        baseURL: https://codem.feishu.cn/models/v1
+        models:
+          - id: codem-router/auto
+            name: 飞书CodeM
+            contextWindow: 256000
+            maxTokens: 65536
+
+- id: agent-default-model
+  config:
+    provider: codem
+    model: codem-router/auto

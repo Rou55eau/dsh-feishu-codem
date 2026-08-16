@@ -1,0 +1,25 @@
+{
+  "name": "dsh-feishu-codem",
+  "version": "0.1.0",
+  "description": "为原生 DeepSeek Harness (DSH) 接入飞书 CodeM 作为模型 Provider，免去 DeepSeek 付费额度",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "codem",
+    "feishu",
+    "llm-provider",
+    "openai-compatible"
+  ],
+  "author": "hanti",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "scripts"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
