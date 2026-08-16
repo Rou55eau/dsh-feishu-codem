@@ -40,10 +40,8 @@ DSH 采用 Cordis「一切皆插件」架构，插件本质是一个 npm 包，`
 
 ## 安装
 
-> 注：下面的 `<本仓库地址>` 是占位符，push 到 GitHub 后请替换为你仓库的真实地址（形如 `https://github.com/<你的用户名>/dsh-feishu-codem.git`）。
-
 ```bash
-git clone <本仓库地址>
+git clone https://github.com/Rou55eau/dsh-feishu-codem.git
 cd dsh-feishu-codem
 
 # 一键安装（默认装到 web profile）
